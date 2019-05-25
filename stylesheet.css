@@ -1,0 +1,18 @@
+progress {
+    display: inline-block;
+    width: 90vw;
+}
+
+#gameInfo {
+    position: absolute;
+    width: 120px;
+    height: 130px;
+    background-color: white;
+    z-index: 100;
+}
+
+#map-canvas {
+    width: 90vw;
+    height: 90vh;
+}
+
