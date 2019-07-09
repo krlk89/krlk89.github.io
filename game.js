@@ -89,12 +89,12 @@ function mapInteraction(event, listener, timerId, selectedPlace) {
 
     progressBar.value = 100;
     const newTimerId = setInterval(() => {
-        progressBar.value -= 1.2;
+        progressBar.value -= 0.32;
         if (progressBar.value === 0) {
             clearInterval(newTimerId);
             startGame();
         }
-    }, 60);
+    }, 16);
 }
 
 function startGame() {
@@ -130,12 +130,12 @@ function startGame() {
     startBtn.disabled = true;
 
     const timerId = setInterval(() => {
-        progressBar.value -= 0.6;
+        progressBar.value -= 0.16;
         if (progressBar.value === 0) {
             clearInterval(timerId);
             paragraph.textContent = "Mäng läbi!";
         }
-    }, 60);
+    }, 16);
 
     const eventListener = map.addListener("click", event => {
         mapInteraction(event, eventListener, timerId, selectedPlace);
