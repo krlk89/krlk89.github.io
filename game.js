@@ -45,7 +45,6 @@ function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
 }
 
 function mapInteraction(event, listener, timerId, selectedPlace) {
-    //console.log(selectedPlace);
     const targetIcon = "https://maps.google.com/mapfiles/kml/paddle/grn-circle.png";
     const distance = parseInt(getDistanceFromLatLonInKm(selectedPlace.lat, selectedPlace.lng, event.latLng.lat(), event.latLng.lng()))
     let score = parseInt(progressBar.value / 10 * (100 - distance));
@@ -111,15 +110,15 @@ function startGame() {
     });
     markers = [];
 
-    const places_ = places[currentLevel];
-    const index = getRandomInt(places_.length);
-    const selectedPlace = places_[index];
+    const currentLevelPlaces = places[currentLevel];
+    const index = getRandomInt(currentLevelPlaces.length);
+    const selectedPlace = currentLevelPlaces[index];
     if (!selectedPlace) {
         target.textContent = "Mäng läbi!";
         return;
     }
     history.push(selectedPlace);
-    places_.splice(index, 1);
+    currentLevelPlaces.splice(index, 1);
     questionCountOnCurrentLevel++;
     if (questionCountOnCurrentLevel === 2) {
         currentLevel++;
@@ -134,7 +133,7 @@ function startGame() {
         progressBar.value -= 0.6;
         if (progressBar.value === 0) {
             clearInterval(timerId);
-            paragraph.textContent = "Fail";
+            paragraph.textContent = "Mäng läbi!";
         }
     }, 60);
 
