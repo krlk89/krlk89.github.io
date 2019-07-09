@@ -1,2 +1,3 @@
-# nipernaadi_iq
-Tunne Eestimaad veebimäng
+# Nipernaadi IQ
+Tunne Eestimaad veebimäng.
+Peamine eesmärk Google Maps JavaScript API õppimine ja katsetamine.
